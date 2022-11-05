@@ -1,0 +1,76 @@
+{
+  "name": "web-deploy",
+  "version": "0.0.1",
+  "description": "web项目部署辅助工具",
+  "keywords": [],
+  "homepage": "",
+  "bin": {
+    "web-deploy": "./dist/index.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckangwen/web-deploy.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "postbuild": "esno scripts/rename-pkg.ts",
+    "dev": "unbuild --stub",
+    "lint": "eslint src/**/*.ts --cache",
+    "prepublishOnly": "npm run build",
+    "start": "esno src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.ts": "npm run lint"
+  },
+  "dependencies": {
+    "kolorist": "^1.6.0",
+    "lodash.merge": "^4.6.2",
+    "micromatch": "^4.0.5",
+    "minimist": "^1.2.7",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@charrue/eslint-config-typescript": "^0.3.0",
+    "@charrue/node-toolkit": "^0.3.0",
+    "@types/lodash.merge": "^4.6.7",
+    "@types/micromatch": "^4.0.2",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.7.5",
+    "@types/shelljs": "^0.8.11",
+    "eslint": "^8.3.0",
+    "esno": "^0.16.3",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "type-fest": "^3.1.0",
+    "typescript": "^4.8.3",
+    "unbuild": "^0.8.11",
+    "vitest": "^0.22.0"
+  }
+}

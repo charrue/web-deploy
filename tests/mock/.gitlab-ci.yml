@@ -1,0 +1,20 @@
+variables:
+  NPM: pnpm
+
+stages:
+  - install_and_build
+  - deploy_package
+
+cache:
+  paths:
+    - node_modules/
+
+install_and_build:
+  stage: install_and_build
+  tags:
+    - frontend-deploy
+  script:
+    - $NPM -v
+  artifacts:
+    paths:
+      - dist/
