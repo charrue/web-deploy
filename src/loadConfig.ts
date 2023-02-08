@@ -6,29 +6,32 @@ import { CLI_NAME } from "./helper/constants";
 export const configFilename = `${CLI_NAME}.json`;
 
 export interface DeployConfig {
+  name: string;
   remote: string;
+  storageKey?: string;
   platform: "gitlab";
   build: {
     script: string;
     outputDir: string;
   };
-  branch: {
-    release: string;
-    active: string[];
+  release: {
+    path: string;
   };
+  branch: string;
 }
 
 export const defaultConfig: DeployConfig = {
+  name: "",
   platform: "gitlab",
   remote: "",
   build: {
     script: "build",
     outputDir: "dist",
   },
-  branch: {
-    release: "release",
-    active: ["*"],
+  release: {
+    path: "/opt/www",
   },
+  branch: "release",
 };
 
 export const loadConfig = (root: string): DeployConfig => {

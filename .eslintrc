@@ -2,6 +2,7 @@
   "extends": ["@charrue/typescript"],
   "rules": {
     "no-console": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "max-statements": "off"
   }
 }

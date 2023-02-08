@@ -13,7 +13,6 @@
   },
   "license": "MIT",
   "author": "",
-  "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
@@ -54,7 +53,8 @@
     "lodash.merge": "^4.6.2",
     "micromatch": "^4.0.5",
     "minimist": "^1.2.7",
-    "shelljs": "^0.8.5"
+    "rimraf": "^4.1.2",
+    "simple-git": "^3.16.0"
   },
   "devDependencies": {
     "@charrue/eslint-config-typescript": "^0.3.0",
@@ -63,6 +63,7 @@
     "@types/micromatch": "^4.0.2",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.5",
+    "@types/rimraf": "^4.0.5",
     "@types/shelljs": "^0.8.11",
     "eslint": "^8.3.0",
     "esno": "^0.16.3",
