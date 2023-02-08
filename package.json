@@ -1,18 +1,14 @@
 {
-  "name": "web-deploy",
-  "version": "0.0.1",
-  "description": "web项目部署辅助工具",
+  "name": "@charrue/web-deploy",
+  "version": "0.1.0",
+  "description": "配合GitLab CI 的web项目部署辅助工具",
   "keywords": [],
-  "homepage": "",
-  "bin": {
-    "web-deploy": "./dist/index.cjs"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ckangwen/web-deploy.git"
+    "url": "git+https://github.com/charrue/web-deploy.git"
   },
   "license": "MIT",
-  "author": "",
+  "author": "ckangwen",
   "type": "module",
   "exports": {
     ".": {
@@ -23,14 +19,8 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
+  "bin": {
+    "web-deploy": "./dist/index.cjs"
   },
   "files": [
     "dist"
@@ -73,5 +63,9 @@
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11",
     "vitest": "^0.22.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

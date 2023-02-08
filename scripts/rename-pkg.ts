@@ -4,7 +4,6 @@ import { fileURLToPath } from "url";
 import { CLI_NAME } from "../src/helper/constants";
 
 const PKG_PATH = resolve(dirname(fileURLToPath(import.meta.url)), "../package.json");
-console.log(PKG_PATH);
 
 const pkgJson = readJson(PKG_PATH);
 
