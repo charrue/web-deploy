@@ -9,17 +9,9 @@
   },
   "license": "MIT",
   "author": "ckangwen",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
-    }
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "bin": {
-    "web-deploy": "./dist/index.cjs"
+    "web-deploy": "./dist/index.js"
   },
   "files": [
     "dist"
