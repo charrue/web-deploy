@@ -19,9 +19,9 @@ const start = () => {
     console.log(`Commands:`);
     console.log(`  init-config`);
     console.log(`  update-config`);
-    console.log(`  init`);
+    console.log(`  init <remote-url>`);
     console.log(`  build`);
-    console.log(`  release`);
+    console.log(`  release <name>`);
     return;
   }
 
@@ -32,7 +32,8 @@ const start = () => {
     updateConfig(context.root);
   }
   if (command === "init") {
-    init(context);
+    const remoteUrl = argv._[1];
+    init(remoteUrl);
   }
   if (command === "build") {
     build(context);
