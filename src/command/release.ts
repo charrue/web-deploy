@@ -8,19 +8,19 @@ import { platform } from "os";
 import { toWinPath } from "../helper/index";
 import { loadConfig } from "../loadConfig";
 
-export const release = async (name: string) => {
+export const release = async (name?: string) => {
   if (!name) {
     if (existsSync(resolve(process.cwd(), "web-deploy.json"))) {
       name = loadConfig(process.cwd()).name;
     }
   }
-  const deployConfig = configStore.get(name);
 
   if (!name) {
     console.log(red("you should specify a project name !"));
 
     process.exit();
   }
+  const deployConfig = configStore.get(name);
 
   if (!deployConfig) {
     console.log(red(`you should build ${name} first !`));

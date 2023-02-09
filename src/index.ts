@@ -1,7 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable max-statements */
 import minimist from "minimist";
-import { createCommandContext } from "./context";
 import { initConfig } from "./command/init-config";
 import { build } from "./command/build";
 import { release } from "./command/release";
@@ -12,7 +10,6 @@ const start = () => {
   const argv = minimist(process.argv.slice(2), {});
   const command = argv._[0];
   argv.$0 = "web-deploy";
-  const context = createCommandContext();
 
   if (!command) {
     console.log(`Usage: ${argv.$0} <command>`);
@@ -26,17 +23,17 @@ const start = () => {
   }
 
   if (command === "init-config") {
-    initConfig(context);
+    initConfig();
   }
   if (command === "update-config") {
-    updateConfig(context.root);
+    updateConfig();
   }
   if (command === "init") {
     const remoteUrl = argv._[1];
     init(remoteUrl);
   }
   if (command === "build") {
-    build(context);
+    build();
   }
   if (command === "release") {
     const name = argv._[1];

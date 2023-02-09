@@ -1,5 +1,4 @@
-/* eslint-disable max-statements */
-import { CommandContext } from "../context";
+import { createCommandContext } from "../context";
 import { resolve } from "path";
 import { cyan, red } from "kolorist";
 import { existsSync } from "fs";
@@ -23,7 +22,9 @@ const formatTime = () => {
   return `${year}_${month}_${day}__${hour}_${minute}_${second}`;
 };
 
-export const build = async (context: CommandContext) => {
+export const build = async () => {
+  const context = createCommandContext();
+
   const { root, config } = context;
 
   const remoteUrl = config.remote;

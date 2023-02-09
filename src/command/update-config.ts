@@ -4,7 +4,7 @@ import { existsSync } from "fs";
 import { configStore } from "../helper/configStore";
 import { cyan } from "kolorist";
 
-export const updateConfig = (root: string) => {
+export const updateConfig = (root: string = process.cwd()) => {
   const configFilePath = resolve(root, "web-deploy.json");
   if (
     !existsSync(configFilePath)

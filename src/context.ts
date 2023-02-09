@@ -19,7 +19,7 @@ export const createCommandContext = () => {
   });
 
   if (!existsSync(packageJsonPath)) {
-    console.log(red(`read ${packageJsonPath} error.`));
+    console.log(red(`read ${packageJsonPath || "package.json"} error.`));
     process.exit();
   }
 

@@ -2,12 +2,15 @@ import { writeJson } from "@charrue/node-toolkit";
 import { resolve } from "path";
 import { cyan } from "kolorist";
 import { defaultConfig, configFilename } from "../loadConfig";
-import { CommandContext } from "../context";
+import { createCommandContext } from "../context";
 import SimpleGit from "simple-git";
 
 const git = SimpleGit();
 
-export const initConfig = async ({ root, packageJson }: CommandContext) => {
+export const initConfig = async () => {
+  const context = createCommandContext();
+  const { root, packageJson } = context;
+
   const userConfig = defaultConfig;
   userConfig.name = packageJson.name || "";
   // get remote url
