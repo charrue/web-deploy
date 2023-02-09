@@ -36,7 +36,7 @@ export const defaultConfig: DeployConfig = {
 
 export const loadConfig = (root: string): DeployConfig => {
   const configPath = resolve(root, configFilename);
-  if (!existsSync(configFilename)) {
+  if (!existsSync(configPath)) {
     return defaultConfig;
   }
 

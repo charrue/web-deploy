@@ -10,18 +10,20 @@ export const init = (remoteUrl: string) => {
   const root = process.cwd();
 
   const startRepo = (repoDir: string) => {
-    const configFilePath = resolve(repoDir, "web-deploy.json");
-    if (!existsSync(configFilePath)) {
-      console.log(red(`cannot find ${configFilePath}. You should 'web-deploy init-config' first.`));
-      process.exit();
-    }
-    const config = loadConfig(repoDir);
-
     // 确保ni安装了
     ensureNi(root);
 
     console.log(`start install dependencies ...`);
     exec("ni", repoDir);
+
+    // 读取配置文件
+    const configFilePath = resolve(repoDir, "web-deploy.json");
+    if (!existsSync(configFilePath)) {
+      console.log(red(`cannot find ${configFilePath}. You should 'web-deploy init-config' first.`));
+      process.exit();
+    }
+    console.log(`start load ${repoDir} config ...`);
+    const config = loadConfig(repoDir);
 
     // 保存配置
     configStore.init();
@@ -42,6 +44,8 @@ export const init = (remoteUrl: string) => {
     } else {
       console.log(`start clone repo ...`);
       exec(`git clone ${remoteUrl}`, root);
+
+      startRepo(repoPath);
     }
   } else {
     startRepo(root);

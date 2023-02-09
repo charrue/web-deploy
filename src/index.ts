@@ -5,11 +5,19 @@ import { build } from "./command/build";
 import { release } from "./command/release";
 import { init } from "./command/init";
 import { updateConfig } from "./command/update-config";
+import pkg from "../package.json";
+import { cyan } from "kolorist";
+
+const logVersion = (name: string) => {
+  console.log(cyan(`${name} v${pkg.version}`));
+};
 
 const start = () => {
   const argv = minimist(process.argv.slice(2), {});
   const command = argv._[0];
   argv.$0 = "web-deploy";
+
+  logVersion(argv.$0);
 
   if (!command) {
     console.log(`Usage: ${argv.$0} <command>`);
