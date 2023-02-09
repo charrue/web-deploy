@@ -1,6 +1,6 @@
 {
   "name": "@charrue/web-deploy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "配合GitLab CI 的web项目部署辅助工具",
   "keywords": [],
   "repository": {
