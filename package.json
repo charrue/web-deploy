@@ -1,6 +1,6 @@
 {
   "name": "@charrue/web-deploy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "配合GitLab CI 的web项目部署辅助工具",
   "keywords": [],
   "repository": {
@@ -9,7 +9,6 @@
   },
   "license": "MIT",
   "author": "ckangwen",
-  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,8 +25,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
-    "dev": "unbuild --stub",
+    "build": "tsup",
     "lint": "eslint src/**/*.ts --cache",
     "prepublishOnly": "npm run build",
     "start": "esno src/index.ts",
@@ -58,9 +56,9 @@
     "esno": "^0.16.3",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
+    "tsup": "^6.6.0",
     "type-fest": "^3.1.0",
     "typescript": "^4.8.3",
-    "unbuild": "^0.8.11",
     "vitest": "^0.22.0"
   },
   "publishConfig": {
