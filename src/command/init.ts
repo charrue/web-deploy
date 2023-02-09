@@ -47,6 +47,6 @@ export const init = (remoteUrl: string) => {
 
     startRepo(repoPath);
   } else {
-    console.log(red(`You should provide a remote url.`));
+    startRepo(root);
   }
 };
