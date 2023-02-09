@@ -1,6 +1,6 @@
 import { resolve } from "path";
 import { existsSync } from "fs";
-import { cyan, red } from "kolorist";
+import { red } from "kolorist";
 import { ensureNi } from "../helper/index";
 import { configStore } from "../helper/configStore";
 import { exec } from "../helper/exec";
@@ -26,8 +26,6 @@ export const init = (remoteUrl: string) => {
     // 保存配置
     configStore.init();
     configStore.set(config.name, config);
-
-    console.log(`save config to ${cyan(configStore.storeFilePath)}`);
   };
 
   if (remoteUrl) {
@@ -39,13 +37,12 @@ export const init = (remoteUrl: string) => {
 
     const repoPath = resolve(root, repoName);
     if (existsSync(repoPath)) {
+      exec(`git pull origin master`, repoPath);
       startRepo(repoPath);
     } else {
       console.log(`start clone repo ...`);
       exec(`git clone ${remoteUrl}`, root);
     }
-
-    startRepo(repoPath);
   } else {
     startRepo(root);
   }

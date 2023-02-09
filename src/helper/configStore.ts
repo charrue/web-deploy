@@ -1,3 +1,4 @@
+import { cyan } from "kolorist";
 import { resolve } from "path";
 import { homedir } from "os";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
@@ -41,6 +42,8 @@ export const createStore = () => {
       const storageKey = config.storageKey || name;
       const storeConfig = getAll();
       storeConfig[storageKey] = config;
+
+      console.log(`save config to ${cyan(storeFilePath)}`);
       writeFileSync(storeFilePath, JSON.stringify(storeConfig, null, 2));
     },
   };
