@@ -27,7 +27,6 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "postbuild": "esno scripts/rename-pkg.ts",
     "dev": "unbuild --stub",
     "lint": "eslint src/**/*.ts --cache",
     "prepublishOnly": "npm run build",
