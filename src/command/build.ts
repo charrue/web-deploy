@@ -30,7 +30,7 @@ export const build = async () => {
   const remoteUrl = config.remote;
   const { outputDir } = config.build;
   const buildScript = config.build.script;
-  const targetBranchName = config.branch;
+  const targetBranchName = config.branch.active || "master";
 
   // 确保设置了远程仓库地址
   if (!remoteUrl) {
@@ -71,8 +71,8 @@ export const build = async () => {
   spawnSync("git", ["commit", "-m", "build: release"], { stdio: "inherit", cwd: distDir });
   const currentBranchName = await (await git.branchLocal()).current;
   if (currentBranchName !== targetBranchName) {
-    exec(`git checkout -b ${targetBranchName} master`, distDir);
-    console.log(`git checkout -b ${targetBranchName} master`);
+    exec(`git checkout -b ${targetBranchName} ${currentBranchName}`, distDir);
+    console.log(`git checkout -b ${targetBranchName} ${currentBranchName}`);
   }
 
   // 添加tag

@@ -17,7 +17,10 @@ export interface DeployConfig {
   release: {
     path: string;
   };
-  branch: string;
+  branch: {
+    active: string;
+    release: string;
+  };
 }
 
 export const defaultConfig: DeployConfig = {
@@ -31,7 +34,10 @@ export const defaultConfig: DeployConfig = {
   release: {
     path: "/opt/www",
   },
-  branch: "release",
+  branch: {
+    active: "master",
+    release: "release",
+  },
 };
 
 export const loadConfig = (root: string): DeployConfig => {
