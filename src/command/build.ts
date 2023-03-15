@@ -30,7 +30,7 @@ export const build = async () => {
   const remoteUrl = config.remote;
   const { outputDir } = config.build;
   const buildScript = config.build.script;
-  const targetBranchName = config.branch.active || "master";
+  const targetBranchName = config.branch.release || "master";
 
   // 确保设置了远程仓库地址
   if (!remoteUrl) {
